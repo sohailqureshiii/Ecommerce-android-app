@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/custom_pop_up"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="10dp">
+
+            <TextView
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:id="@+id/close"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="X"
+                android:textStyle="bold"
+                android:textColor="@color/pink"
+                android:textSize="30dp"
+                android:layout_alignParentEnd="true"
+                />
+
+            <TextView
+                android:textColor="#C4000000"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_below="@+id/close"
+                android:layout_marginTop="10dp"
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textSize="35sp" />
+
+            <TextView
+                android:gravity="right"
+                android:textColor="#C4000000"
+                android:textStyle="bold"
+                android:layout_marginStart="50dp"
+                android:layout_below="@+id/textView7"
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView8"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:text="Already an user?"
+                android:textSize="20sp" />
+
+            <TextView
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textColor="@color/Green"
+                android:id="@+id/textView99"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView7"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/textView8"
+                android:text=" Sign In"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_below="@+id/textView99"
+                android:layout_marginTop="30dp"
+                android:id="@+id/firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="First Name"
+                app:hintTextColor="#000">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_below="@+id/firstname"
+                android:layout_marginTop="10dp"
+                android:id="@+id/shopdescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Last Name"
+                app:hintTextColor="#000">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_below="@+id/shopdescription"
+                android:layout_marginTop="10dp"
+                android:id="@+id/GSTno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Username or Email"
+                app:hintTextColor="#000">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_below="@+id/GSTno"
+                android:layout_marginTop="10dp"
+                android:id="@+id/shopType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:hint="Password "
+                app:hintTextColor="#000">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:background="@drawable/btn_gradient_style"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/gopopup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shopType"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/phone"
+                android:text="Sign In" />
+
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_below="@+id/gopopup"
+                android:background="@color/hintcolor"/>
+
+            <TextView
+                android:id="@+id/or"
+                android:textSize="17dp"
+                android:background="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    or Sign In With    "
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/gopopup"
+                android:layout_marginTop="19dp"/>
+
+
+<com.google.android.gms.common.SignInButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/or"
+    android:layout_marginTop="40dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</androidx.cardview.widget.CardView>

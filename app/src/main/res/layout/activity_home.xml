@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    >
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemTextColor="@color/black_overlay"
+        app:itemIconTint="@color/green"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/toolbarhome"
+                android:id="@+id/mytoolbarhome"
+                />
+
+
+            <RelativeLayout
+                android:id="@+id/nnn"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/mytoolbarhome"
+                android:background="@color/black"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@+id/nnn"
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/bannerlayout"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/slider"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:elevation="10dp"
+                    app:auto_cycle="true"
+                    app:corner_radius="6"
+                    app:delay="0"
+                    app:period="2000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:id="@+id/ttttt"
+                android:layout_below="@+id/bannerlayout"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical">
+
+                <GridView
+                    android:id="@+id/grid_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/bannerlayout"
+                    android:numColumns="4" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/trencart"
+                android:layout_below="@+id/ttttt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+                <RelativeLayout
+                    android:id="@+id/trending"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp">
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/trencart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+                <RelativeLayout
+                    android:id="@+id/trendingg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/trending">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/trendd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:text="Discount"
+                        android:textColor="#000"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/img11"
+                        android:layout_below="@+id/trendd"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/bookscategory"/>
+                    <ImageView
+                        android:layout_below="@+id/img11"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/bookscategory"/>
+                    <ImageView
+                        android:id="@+id/img22"
+                        android:layout_below="@+id/trendd"
+                        android:layout_marginTop="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/bookscategory"/>
+
+                    <ImageView
+                        android:layout_below="@+id/img22"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/bookscategory" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
