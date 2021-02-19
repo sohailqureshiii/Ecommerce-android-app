@@ -1,5 +1,6 @@
 package com.example.shopisthan_ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import me.relex.circleindicator.CircleIndicator;
@@ -7,17 +8,23 @@ import me.relex.circleindicator.CircleIndicator;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.tabs.TabLayout;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +44,12 @@ public class IntroActivity extends AppCompatActivity {
 
     TextView signin,close;
 
+    FirebaseAuth firebaseAuth;
+    TextInputLayout firstName, lastName,email,password;
+    Button signUP;
+    SignInButton btn;
+    ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +67,10 @@ public class IntroActivity extends AppCompatActivity {
         btnGetStarted = findViewById(R.id.btn_getstarted);
         btnskip = findViewById(R.id.btn_next2);
         screenPager =findViewById(R.id.screen_viewpager);
+
+
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_animation);
 
@@ -108,10 +125,21 @@ public class IntroActivity extends AppCompatActivity {
 
     private void createNewContactDialog() {
         dialogBuilder= new AlertDialog.Builder(this);
-        final View contactPopupView = getLayoutInflater().inflate(R.layout.shopedetailspop,null);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.sign_up,null);
 
         signin = contactPopupView.findViewById(R.id.signup);
         close = contactPopupView.findViewById(R.id.close);
+
+        firstName = contactPopupView.findViewById(R.id.firstname);
+        lastName =contactPopupView.findViewById(R.id.shopdescription);
+        email =  contactPopupView.findViewById(R.id.GSTno);
+        password = contactPopupView.findViewById(R.id.shopType);
+        signUP = contactPopupView.findViewById(R.id.gopopup);
+        progressBar = contactPopupView.findViewById(R.id.progress_circular);
+
+        btn = contactPopupView.findViewById(R.id.googleSign);
+
+
 
         close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,11 +164,85 @@ public class IntroActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+        signUP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+                String Email = email.getEditText().toString().trim();
+                String Password = password.getEditText().toString().trim();
+                String FirstName = firstName.getEditText().toString().trim();
+                String LastName = lastName.getEditText().toString().trim();
+
+
+                if (TextUtils.isEmpty(FirstName))
+                {
+                    firstName.setError("Enter the first name");
+                }
+                else if (TextUtils.isEmpty(LastName))
+                {
+                    email.setError("Enter the last name");
+                }
+
+                else if (TextUtils.isEmpty(Email))
+                {
+                    email.setError("Enter the email");
+                }
+                else if (TextUtils.isEmpty(Password))
+                {
+                    password.setError("Password is Required");
+                }
+                else if (Password.length()<6)
+                {
+                    password.setError("Password must be more than 6 characters");
+                }
+
+                else
+                {
+                    signUP.setVisibility(View.INVISIBLE);
+                    progressBar.setVisibility(View.VISIBLE);
+                    firebaseAuth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task)
+                        {
+                            if (task.isSuccessful())
+                            {
+                                Toast.makeText(IntroActivity.this, "registered successfully", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(IntroActivity.this,HomeActivity.class));
+                            }
+                            else
+                            {
+                                signUP.setVisibility(View.VISIBLE);
+                                progressBar.setVisibility(View.INVISIBLE);
+                                Toast.makeText(IntroActivity.this, "Error ! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+                }
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
+
     }
 
     private void Signin() {
         dialogBuilder= new AlertDialog.Builder(this);
-        final View contactPopupView = getLayoutInflater().inflate(R.layout.shopesignindetailspop,null);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.sing_in,null);
 
 
 

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "997712671292",
+    "project_id": "myshopisthan-81bc7",
+    "storage_bucket": "myshopisthan-81bc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997712671292:android:cf15f5972d6acd7452c939",
+        "android_client_info": {
+          "package_name": "com.example.shopisthan_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997712671292-jgor2asdrg6uph9f77tbjm4i8h84h85t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shopisthan_ui",
+            "certificate_hash": "4f8925b9e241bcff060d6805657992dcaeeb2a91"
+          }
+        },
+        {
+          "client_id": "997712671292-9flghjfgntvevh71en9r720bflja1he7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrgJsxPnlfHfGij77JHQj5br2gAExkANY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997712671292-9flghjfgntvevh71en9r720bflja1he7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
