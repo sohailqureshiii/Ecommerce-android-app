@@ -46,80 +46,51 @@
                 android:textSize="35sp" />
 
             <TextView
-                android:gravity="right"
-                android:textColor="#C4000000"
-                android:textStyle="bold"
-                android:layout_marginStart="50dp"
-                android:layout_below="@+id/textView7"
-                android:layout_marginTop="20dp"
                 android:id="@+id/textView8"
                 android:layout_width="155dp"
                 android:layout_height="wrap_content"
-                android:text="Already an user?"
-                android:textSize="20sp" />
+                android:layout_below="@+id/textView7"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="New User "
+                android:textColor="#C4000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:gravity="left"
                 android:textStyle="bold"
                 android:textColor="@color/Green"
-                android:id="@+id/signup"
-                android:layout_width="150dp"
+                android:id="@+id/textView99"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView7"
                 android:layout_marginTop="20dp"
                 android:layout_toRightOf="@+id/textView8"
-                android:text=" Sign In"
+                android:text=" Creat an Account"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_below="@+id/signup"
+                android:layout_below="@+id/textView99"
                 android:layout_marginTop="30dp"
                 android:id="@+id/firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="First Name"
+                android:hint="Username or email"
                 app:hintTextColor="#000">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_below="@+id/firstname"
-                android:layout_marginTop="10dp"
-                android:id="@+id/shopdescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="Last Name"
-                app:hintTextColor="#000">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_below="@+id/shopdescription"
-                android:layout_marginTop="10dp"
-                android:id="@+id/GSTno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="Username or Email"
-                app:hintTextColor="#000">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_below="@+id/GSTno"
                 android:layout_marginTop="10dp"
                 android:id="@+id/shopType"
                 android:layout_width="match_parent"
@@ -143,7 +114,7 @@
                 android:layout_below="@+id/shopType"
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@drawable/phone"
-                android:text="Sign Up" />
+                android:text="Sign In" />
 
             <RelativeLayout
                 android:layout_marginTop="30dp"

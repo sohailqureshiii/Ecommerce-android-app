@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -20,7 +20,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:gravity="center"
-        android:text="TextView"
+        android:text="TextView "
         android:textColor="#000"
         android:textSize="42sp"
         android:textStyle="bold"
@@ -81,3 +81,5 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

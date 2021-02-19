@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView logoo;
     Handler handler;
     int progress= 0 ;
-//    Animation ImgAnim ;
+    Animation ImgAnim ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

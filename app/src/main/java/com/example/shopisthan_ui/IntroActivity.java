@@ -14,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
@@ -34,6 +35,8 @@ public class IntroActivity extends AppCompatActivity {
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
 
+    TextView signin,close;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class IntroActivity extends AppCompatActivity {
         btnGetStarted = findViewById(R.id.btn_getstarted);
         btnskip = findViewById(R.id.btn_next2);
         screenPager =findViewById(R.id.screen_viewpager);
+
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.button_animation);
 
         List<ScreenItem> mList = new ArrayList<>();
@@ -86,6 +90,9 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,13 +110,44 @@ public class IntroActivity extends AppCompatActivity {
         dialogBuilder= new AlertDialog.Builder(this);
         final View contactPopupView = getLayoutInflater().inflate(R.layout.shopedetailspop,null);
 
+        signin = contactPopupView.findViewById(R.id.signup);
+        close = contactPopupView.findViewById(R.id.close);
 
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(IntroActivity.this,MainActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Signin();
+            }
+        });
 
         dialogBuilder.setView(contactPopupView);
         dialog = dialogBuilder.create();
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
 
+
+
+    }
+
+    private void Signin() {
+        dialogBuilder= new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.shopesignindetailspop,null);
+
+
+
+        dialogBuilder.setView(contactPopupView);
+        dialog = dialogBuilder.create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
 
 
     }
